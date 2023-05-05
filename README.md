@@ -13,3 +13,15 @@ K8s Metrics Server
   Metrics Server collects resource metrics from Kubelets and exposes them in Kubernetes apiserver through Metrics API for use by Horizontal Pod Autoscaler and Vertical Pod Autoscaler. Metrics API can also be accessed by kubectl top, making it easier to debug autoscaling pipelines.
 
   Metrics Server is not meant for non-autoscaling purposes. For example, don't use it to forward metrics to monitoring solutions, or as a source of monitoring solution metrics. In such cases please collect metrics from Kubelet /metrics/resource endpoint directly.
+       
+       I was able to reproduce your issue on the latest minikube v1.25.2 (Kubernetes v1.23.3 on Docker 20.10.12): the metrics-server pod does not start because of X509 error and then kubectl top node results in Error from server (ServiceUnavailable): the server is currently unable to handle the request (get nodes.metrics.k8s.io).
+
+    The workaround that fixed the issue for me was to add --kubelet-insecure-tls in the deployment.
+
+    kind: Deployment
+    spec:
+        spec:
+          containers:
+          - args:
+            - --kubelet-insecure-tls
+
