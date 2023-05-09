@@ -25,3 +25,8 @@ K8s Metrics Server
           - args:
             - --kubelet-insecure-tls
 
+: 
+**Kubernetes Add On:**
+  **Amazon VPC CNI plugin for Kubernetes:** A Kubernetes container network interface (CNI) plugin that provides native VPC networking for your cluster. The self-managed or managed type of this add-on is installed on each Amazon EC2 node, by default.
+  **CoreDNS:** A flexible, extensible DNS server that can serve as the Kubernetes cluster DNS._two replicas_ of the CoreDNS image are deployed _by default_, regardless of the number of nodes deployed in your cluster. _The CoreDNS Pods provide name resolution for all Pods in the cluster_ 
+  **Kube-proxy:**  Maintains network rules on each Amazon EC2 node. It enables network communication to your Pods
