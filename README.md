@@ -36,3 +36,5 @@ K8s Metrics Server
   **Kube-proxy:**  Maintains network rules on each Amazon EC2 node. It enables network communication to your Pods
   
   **Amazon GuardDuty agent:** Amazon GuardDuty is a security monitoring service that analyzes and processes foundational data sources including AWS CloudTrail management events and Amazon VPC flow logs. Amazon GuardDuty also processes features, such as Kubernetes audit logs and runtime monitoring.
+  
+  **ExternalDNS** synchronizes exposed Kubernetes Services and Ingresses with DNS providers
